@@ -21,10 +21,10 @@ public class StockinfoController {
 	private StockinfoService stockinfoService;
      
 	
-	@RequestMapping("getAll")  
-    public String getAddInfoAll(String stockCode ,HttpServletRequest request){  
+	@RequestMapping("getSharesInfo")  
+    public String getInfobystockCode(String stockCode ,HttpServletRequest request){  
 		Result result = new Result(Result.SUCCESS.NO.getValue(), Result.RESULT_OP_FAIL);    
-            List<stockinfo> list = stockinfoService.getAll(stockCode);  
+            List<stockinfo> list = stockinfoService.getSharesInfo(stockCode);  
             System.out.println("------User_list-----"+list.size());  
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("pagelist", list);

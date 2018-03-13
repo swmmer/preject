@@ -25,7 +25,7 @@
     select 
     <include refid="Base_Column_List" />
     from stock_info
-    where  STOCK_CODE= #{stockCode,jdbcType=String}
+    where  STOCK_CODE= #{stockCode,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from stock_info

@@ -17,8 +17,8 @@ public class StockinfoServiceImpl implements StockinfoService{
 	
 	//查询所有股票
 	@Override
-	public List<stockinfo> getAll(String stockCode) {
-		  return stockinfodao.selectAll(stockCode);
+	public List<stockinfo> getSharesInfo(String stockCode) {
+		  return stockinfodao.selectBystockCode(stockCode);
 	}
 
 	
