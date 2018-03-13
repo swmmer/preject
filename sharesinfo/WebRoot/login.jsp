@@ -1,14 +1,40 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>  
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">  
-<html>  
-  <head>  
-    <title>用户登录</title>  
-  </head>  
-  <body>  
-    <form action="<%=request.getContextPath() %>/login.do" method="post">  
-        用户名：<input type="text" name="username" >  
-        密码：<input type="password" name="password" >  
-            <input type="submit" value="登录">  
-      </form>  
-  </body>  
-</html>  
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span2">
+		</div>
+		<div class="span8">
+		 <form class="form-inline">
+			<img src="img/login.png" class="img-polaroid"><br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3>衡泰股票查询系统</h3><br>
+			 用户名<input type="text" class="input-small" placeholder="User">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 密码 <input type="password" class="input-small" placeholder="Password">&nbsp;&nbsp;
+			<label class="checkbox">
+				<input type="checkbox"> 记住用户名
+			</label>
+			<button type="submit" class="btn">登陆</button>
+		</form>		
+		
+		</div>
+		<div class="span2">
+		</div>
+	</div>
+</div>
+
+   
+</body>
+</html>
