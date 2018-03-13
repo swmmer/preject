@@ -17,12 +17,12 @@
 		<div class="span2">
 		</div>
 		<div class="span8">
-		 <form class="form-inline">
+		 <form class="form-inline" action="<%=request.getContextPath() %>/login.do" method="post">
 			<img src="img/login.png" class="img-polaroid"><br>
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3>衡泰股票查询系统</h3><br>
-			 用户名<input type="text" class="input-small" placeholder="User">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			 密码 <input type="password" class="input-small" placeholder="Password">&nbsp;&nbsp;
+			 用户名<input type="text" class="input-small" placeholder="User" name="username" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 密码 <input type="password" class="input-small" placeholder="Password" name="password">&nbsp;&nbsp;
 			<label class="checkbox">
 				<input type="checkbox"> 记住用户名
 			</label>
