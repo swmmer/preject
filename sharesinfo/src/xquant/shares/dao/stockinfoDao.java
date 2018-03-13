@@ -1,5 +1,7 @@
 package xquant.shares.dao;
 
+import java.util.List;
+
 import xquant.shares.model.stockinfo;
 
 public interface stockinfoDao {
@@ -14,4 +16,9 @@ public interface stockinfoDao {
     int updateByPrimaryKeySelective(stockinfo record);
 
     int updateByPrimaryKey(stockinfo record);
+    
+    //查询所有股票信息
+    List<stockinfo> selectAll();
+    
+    
 }
