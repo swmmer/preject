@@ -12,7 +12,8 @@ import xquant.shares.service.UserService;
 @Controller  
 public class UserController {  
     @Autowired  
-    private UserService userService;  
+    private UserService userService; 
+  
     public UserService getUserService() {  
         return userService;  
     }  
@@ -90,8 +91,8 @@ public class UserController {
         }  
     }  
     @RequestMapping("login")  
-    public String login(User user,HttpServletRequest request){  
-        try {             
+    public String login(User user,HttpServletRequest request){   
+        try {
             System.out.println("------login--qian----"+user.getUsername()+","+user.getPassword()+".");  
             User loginUser = null;  
             loginUser=userService.login(user);  
