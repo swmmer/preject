@@ -11,8 +11,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 
 /**
- * @author 沈晨辉
- * @date 2016年11月23日
  * <p> 操作结果集
  */
 public class Result {
@@ -23,13 +21,13 @@ public class Result {
 	public static final String RESULT_OP_INVALIDPARA = "参数非法！";
 	public static final String RESULT_OP_UNAUTHORITY = "未授权！";
 //	重定向登录页面
-	public static final String RETURN_JSP_LOGIN 	= "/front/login";
+	public static final String RETURN_JSP_LOGIN 	= "login.jsp";
 //	重定向参数异常页面
-	public static final String RETURN_JSP_PARAMERR 	= "/front/login";
+	public static final String RETURN_JSP_PARAMERR 	= "login.jsp";
 //	重定向异常页面
-	public static final String RETURN_JSP_ERROR 	= "/front/login";
+	public static final String RETURN_JSP_ERROR 	= "login.jsp";
 	
-	public static final String RETURN_JSP_EXPT_LOGIN = "redirect:/iext/expt/front/ExpertInfomationController/expertNoLogin.do?url=/expt/front/index";
+	public static final String RETURN_JSP_EXPT_LOGIN = "login.jsp";
 	/**
 	 * 操作是否成功
 	 */
