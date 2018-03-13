@@ -7,5 +7,5 @@ import xquant.shares.model.stockinfo;
 public interface StockinfoService {
 
 	
-	List<stockinfo> getAll();
+	List<stockinfo> getAll(String stockCode);
 }

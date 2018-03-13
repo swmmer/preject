@@ -18,7 +18,7 @@ public interface stockinfoDao {
     int updateByPrimaryKey(stockinfo record);
     
     //查询所有股票信息
-    List<stockinfo> selectAll();
+    List<stockinfo> selectAll(String stockCode);
     
     
 }

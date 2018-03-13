@@ -22,9 +22,9 @@ public class StockinfoController {
      
 	
 	@RequestMapping("getAll")  
-    public String getAddInfoAll(HttpServletRequest request){  
+    public String getAddInfoAll(String stockCode ,HttpServletRequest request){  
 		Result result = new Result(Result.SUCCESS.NO.getValue(), Result.RESULT_OP_FAIL);    
-            List<stockinfo> list = stockinfoService.getAll();  
+            List<stockinfo> list = stockinfoService.getAll(stockCode);  
             System.out.println("------User_list-----"+list.size());  
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("pagelist", list);
