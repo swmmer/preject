@@ -1,12 +1,41 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>  
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">  
-<html>  
-  <head>  
-    <title>My JSP 'index.jsp' starting page</title>  
-  </head>  
-  <body>  
-            <h1>---${loginUser}---</h1>  
-            <a href="add.jsp">新增数据</a>  
-            <a href="getAll.do">查看全部数据</a>  
-  </body>  
-</html>  
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>衡泰股票系统</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body style="margin:10px;">
+<div class="container-fluid" style="margin-top:20px;">
+	<div class="row-fluid">
+		<div class="span2"></div>
+		
+		<div class="span8">
+			<div class="navbar-inner" style=" margin: 10px auto ;">
+				<p class="text-center text-info" style="margin:10px;font-size: 20px;">衡泰股票系统</p>
+			</div>
+			<div class="span2" style="height: 800px; border:1px,solid,#ccc;background-color: #fafafa ">
+				<div class="accordion-group">
+    				<div class="accordion-heading">
+      					<a class="accordion-toggle" data-toggle="collapse" href="#collapseTwo">数据查询</a>
+    				</div>
+    			</div>	
+    			<div id="collapseTwo" class="accordion-body collapse">
+      				<div class="accordion-inner">
+        			<a href="toMain.do">股票查询</a>
+      				</div>
+    			</div>
+  			</div>
+  			<div class="span8"></div>
+		</div>
+
+		<div class="span2"></div>
+	</div>
+</div>
+</body>
+
+</html>
