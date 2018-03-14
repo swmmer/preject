@@ -39,9 +39,9 @@ public class StockinfoController {
 
 	//插入
 	@RequestMapping("insertsharesinfo")
-	@ResponseBody
-	public void insertsharesinfo(stockinfo StockInfo,HttpServletRequest request){
+	public String insertsharesinfo(stockinfo StockInfo,HttpServletRequest request){
 		stockinfoService.insert(StockInfo);
+		return "add";
 	}
 	
 	

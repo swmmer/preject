@@ -46,37 +46,37 @@ onblur="check_stockcode();"
 					</div>
 				</div>
 				<div class="span8">
-					<form class="form-inline">
+					<form class="form-inline" action="<%=request.getContextPath() %>/insertsharesinfo.do" method="post">
 						<table class="table">
 							<tr>
 								<td><span>股票代码：</span> <input type="text"
-									placeholder="请输入6位股票代码" id="stock_code" MaxLength=6 required /></td>
+									placeholder="请输入6位股票代码" name="stockCode" MaxLength=6 required /></td>
 							</tr>
 							<tr>
-								<td><span>股票名称：</span> <input type="text" id="stock_name"
+								<td><span>股票名称：</span> <input type="text" name="stockName"
 									required /></td>
 								<td><span>交易市场：</span> <input type="text"
-									id="trading_market" required /></td>
+									name="tradingMarket" required /></td>
 							</tr>
 
 							<tr>
 								<td><span>发行价格：</span> <input type="text"
-									id="offering_price" required /></td>
-								<td><span>发行市盈率：</span> <input type="text" id="pe_ratio"
+									name="offeringPrice" required /></td>
+								<td><span>发行市盈率：</span> <input type="text" name="peRatio"
 									required /></td>
 							</tr>
 
 							<tr>
-								<td><span>上市日期：</span> <input type="text" id="launch_date"
+								<td><span>上市日期：</span> <input type="text" name="launchDate"
 									placeholder="请选择日期" /></td>
-								<td><span>到期日：</span> <input type="text" id="maturity_date"
+								<td><span>到期日：</span> <input type="text" name="maturityDate"
 									placeholder="请选择日期" /></td>
 							</tr>
 
 							<tr>
-								<td><button class="btn btn-primary" type="button"
+								<td><input class="btn btn-primary" type="submit"
 										style="float: right; margin-right: 58px; margin-top: 25px;"
-										onclick="validate_add();">录入</button></td>
+										value="录入"></td>
 								<td><button class="btn btn-primary" type="button"
 										style="float: left; margin-right: 58px; margin-top: 25px;"
 										onclick=";">取消</button></td>
