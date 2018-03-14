@@ -10,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import xquant.shares.model.stockinfo;
 import xquant.shares.service.StockinfoService;
@@ -32,12 +30,13 @@ public class StockinfoController {
 	
 	//修改
 	@RequestMapping("updatesharesinfo")
-	public void updatesharesinfo(stockinfo record) {
+	@ResponseBody
+	public void updatesharesinfo(stockinfo record,HttpServletRequest request) {
 		stockinfoService.updateByid(record);
-		System.out.println(1);
 	}
 	
 	
+
 	//插入
 	@RequestMapping("insertsharesinfo")
 	@ResponseBody
