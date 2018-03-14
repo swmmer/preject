@@ -1,6 +1,8 @@
 package xquant.shares.service;
 
 
+import java.util.List;
+
 import xquant.shares.model.stockinfo;
 
 public interface StockinfoService {
@@ -12,5 +14,7 @@ public interface StockinfoService {
 	
 	void insert(stockinfo record);
 	
-	String deleteByStockCode(String stockCodeDel,String stockCodeSel);
+	String deleteByStockCode(String stockCodeDel,String stockCodeSearch);
+	
+	void exportExcel(String stockCodeSearch);
 }
