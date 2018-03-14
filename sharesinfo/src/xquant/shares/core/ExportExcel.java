@@ -112,9 +112,9 @@ public class ExportExcel<T> {
             T t = (T) it.next();  
             // 利用反射，根据javabean属性的先后顺序，动态调用getXxx()方法得到属性值  
             Field[] fields = t.getClass().getDeclaredFields();  
-            for (short i = 0; i < fields.length; i++)  
+            for (short i = 1; i < fields.length; i++)  
             {  
-                HSSFCell cell = row.createCell(i);  
+                HSSFCell cell = row.createCell(i-1);  
                 cell.setCellStyle(style2);  
                 Field field = fields[i];  
                 String fieldName = field.getName();  
