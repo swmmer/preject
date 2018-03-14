@@ -1,4 +1,7 @@
 var stockCodeTemp;
+/*
+ * 获取点击行的股票代码
+ */
 function delRow(obj){
 	var $tds = $(obj).parent().siblings();
 	stockCodeTemp = $tds.eq(0).html();
@@ -14,8 +17,7 @@ function delData(){
 		},
 		dataType : 'JSON',
 		success : function(data) {
-			console.log("已经删除");
-			showData(data);
+			showData(data, $.cookie('page_cookie'));
 		}
-	}); 	
+	});
 }		

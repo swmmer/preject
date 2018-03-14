@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/search.js"></script>
 	<script type="text/javascript" src="js/delete.js"></script>
+	<script type="text/javascript" src="js/output.js"></script>
 </head>
 <body style="margin: 10px;">
 	<div class="container-fluid" style="margin-top: 20px;">
@@ -49,7 +50,7 @@
 						style="float: right; margin-left: 10px;"
 						onclick="location.href='toAdd.do'">录入</button>
 					<button class="btn btn-primary" id="output" type="button"
-						style="float: right;">导出</button>
+						style="float: right;" onclick="output();">导出</button>
 
 					<table class="table table-bordered table-striped table-hover"
 						style="margin-top: 20px;">
