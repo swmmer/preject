@@ -16,35 +16,29 @@ $(function() {
 	})
 });
 
-
-function test(){
-	var stock_code = $("stock_code").val();
-	var stock_name = $("stock_name").val();
-	var trading_market = $("#trading_market").val();
-	var offering_price = $("#offering_price").val();
-	var pe_ratio = $("#pe_ratio").val();
-	var launch_date = $("#launch_date").val();
-	var maturity_date = $("#maturity_date").val();
+function valdiate_add(){
+	var stockinfo = new Object();
+	stockinfo.stock_code = $("stock_code").val();
+	stockinfo.stock_name = $("stock_name").val();
+	stockinfo.trading_market = $("#trading_market").val();
+	stockinfo.offering_price = $("#offering_price").val();
+	stockinfo.pe_ratio = $("#pe_ratio").val();
+	stockinfo.launch_date = $("#launch_date").val();
+	stockinfo.maturity_date = $("#maturity_date").val();
 	
 	$.ajax({
 		url : 'insertsharesinfo.do',
 		type : 'post',
 		data : {
-			stockCode : stock_code,
-			stockName : stock_name,
-			tradingMarket : trading_market,
-			offeringPrice : offering_price,
-			peRatio : pe_ratio,
-			launchDate : launch_date,
-			maturityDate : maturity_date				
+			StockInfo: stockinfo
 		},
 		dataType : 'JSON',
 		success : function(data) {
-			//回调函数
-			aletr("插入数据成功");				
+			//回调函数				
 		}
 	});
 }
+
 
 
 var stock_code = $("stock_code").val();

@@ -12,41 +12,11 @@
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <script src="jqueryui/jquery-ui.min.js"></script>
 
-  
-<script src = "js/add.js"></script>
+
+<script src="js/add.js"></script>
 <!--
 onblur="check_stockcode();"
 -->
-
-<script>
-function test(){
-	var stock_code = $("stock_code").val();
-	var stock_name = $("stock_name").val();
-	var trading_market = $("#trading_market").val();
-	var offering_price = $("#offering_price").val();
-	var pe_ratio = $("#pe_ratio").val();
-	var launch_date = $("#launch_date").val();
-	var maturity_date = $("#maturity_date").val();
-	
-	$.ajax({
-		url : 'insertsharesinfo.do',
-		type : 'post',
-		data : {
-			stockCode : stock_code,
-			stockName : stock_name,
-			tradingMarket : trading_market,
-			offeringPrice : offering_price,
-			peRatio : pe_ratio,
-			launchDate : launch_date,
-			maturityDate : maturity_date				
-		},
-		dataType : 'JSON',
-		success : function(data) {
-			//回调函数				
-		}
-	});
-}
-</script>
 
 <title>录入信息</title>
 </head>
@@ -80,8 +50,7 @@ function test(){
 						<table class="table">
 							<tr>
 								<td><span>股票代码：</span> <input type="text"
-									placeholder="请输入6位股票代码" id="stock_code" MaxLength=6
-									 required /></td>
+									placeholder="请输入6位股票代码" id="stock_code" MaxLength=6 required /></td>
 							</tr>
 							<tr>
 								<td><span>股票名称：</span> <input type="text" id="stock_name"
@@ -106,10 +75,10 @@ function test(){
 
 							<tr>
 								<td><button class="btn btn-primary" type="button"
-										style="float:right; margin-right: 58px; margin-top: 25px;"
-										onclick="test();">录入</button></td>
+										style="float: right; margin-right: 58px; margin-top: 25px;"
+										onclick="validate_add();">录入</button></td>
 								<td><button class="btn btn-primary" type="button"
-										style="float:left; margin-right: 58px; margin-top: 25px;"
+										style="float: left; margin-right: 58px; margin-top: 25px;"
 										onclick=";">取消</button></td>
 							</tr>
 						</table>
