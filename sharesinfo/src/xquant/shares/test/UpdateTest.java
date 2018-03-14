@@ -40,7 +40,7 @@ public class UpdateTest {
 		Date d1 = dateFormat1.parse("1999-11-10");
 		si.setLaunchDate(d1);
 		DateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
-		Date d2 = dateFormat1.parse("2049-11-10");
+		Date d2 = dateFormat2.parse("2049-11-10");
 		si.setMaturityDate(d2);
 		si.setId(10);
 		

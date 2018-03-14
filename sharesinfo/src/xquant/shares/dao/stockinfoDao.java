@@ -23,6 +23,9 @@ public interface stockinfoDao {
 	//根据股票代码更新股票信息
 	int updateByStockCode(stockinfo record);
 	
+	//根据股票代码删除股票信息
+	int deleteByStockCode(String stockCodeDel);
+	
 
     
 }

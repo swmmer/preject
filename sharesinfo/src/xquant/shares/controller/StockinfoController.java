@@ -43,13 +43,12 @@ public class StockinfoController {
 	}
 	
 	@RequestMapping("updateSharesByCode")
-	
 	public void updateByStockCode() throws ParseException{
 		
 		stockinfo si = new stockinfo();
 		si.setStockCode("7000001");
 		
-		si.setStockName("民生+++银行");
+		si.setStockName("民生银行");
 		si.setTradingMarket("上交所");
 		BigDecimal b = new BigDecimal("11.00000");
 		si.setOfferingPrice(b);
@@ -62,10 +61,20 @@ public class StockinfoController {
 		DateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
 		Date d2 = dateFormat2.parse("2049-11-10");
 		si.setMaturityDate(d2);
+
+		
 //		si.setId(10);
 		
-		stockinfoService.insert(si);
+		stockinfoService.updateByStockCode(si);
 		System.out.println(1);
+	}
+	
+	@RequestMapping("deleteByStockCode")
+	public String deleteByStockCode(String stockCodeDel,String stockCodeSearch){
+		
+		String stockOfJson = stockinfoService.deleteByStockCode(stockCodeDel,stockCodeSearch);
+		System.out.println(stockOfJson);
+		return stockOfJson;
 	}
           	
 }
