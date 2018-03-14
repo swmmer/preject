@@ -1,5 +1,6 @@
 package xquant.shares.controller;
 
+
 import xquant.shares.core.Result;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,12 +45,11 @@ public class StockinfoController {
 	
 	
 	//删除
-	@RequestMapping("deleteByStockCode")
+	@RequestMapping(value = "deleteByStockCode",produces = "application/json;charset=utf-8")
 	@ResponseBody
 	public String deleteByStockCode(String stockCodeDel,String stockCodeSearch,HttpServletRequest request){
 		
 		String stockOfJson = stockinfoService.deleteByStockCode(stockCodeDel,stockCodeSearch);
-		System.out.println(stockOfJson);
 		return stockOfJson;
 	}
     

@@ -26,7 +26,7 @@
     			</div>	
     			<div id="collapseTwo" class="accordion-body collapse">
       				<div class="accordion-inner">
-        			<a href="toMain.do">股票查询</a>
+        			<a href="main.jsp">股票查询</a>
       				</div>
     			</div>
   			</div>

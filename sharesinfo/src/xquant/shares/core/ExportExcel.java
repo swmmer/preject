@@ -37,6 +37,9 @@ import org.apache.poi.hssf.util.HSSFColor;
 
 public class ExportExcel<T> {
 
+	
+	
+	
 	public void exportExcel(Collection<T> dataset, OutputStream out)  
     {  
         exportExcel("EXCEL文档", null, dataset, out, "yyyy-MM-dd");  
