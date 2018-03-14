@@ -1,8 +1,6 @@
 package xquant.shares.service;
 
 
-import java.util.List;
-
 import xquant.shares.model.stockinfo;
 
 public interface StockinfoService {
