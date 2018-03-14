@@ -41,7 +41,7 @@ onblur="check_stockcode();"
 					</div>
 					<div id="collapseTwo" class="accordion-body collapse">
 						<div class="accordion-inner">
-							<a href="stock.html">股票查询</a>
+							<a href="main.jsp">股票查询</a>
 						</div>
 					</div>
 				</div>
@@ -67,16 +67,16 @@ onblur="check_stockcode();"
 							</tr>
 
 							<tr>
-								<td><span>上市日期：</span> <input type="text" name="launchDate"
+								<td><span>上市日期：</span> <input id="date1" type="text" name="launchDate"
 									placeholder="请选择日期" /></td>
-								<td><span>到期日：</span> <input type="text" name="maturityDate"
+								<td><span>到期日：</span> <input id="date2" type="text" name="maturityDate"
 									placeholder="请选择日期" /></td>
 							</tr>
 
 							<tr>
 								<td><input class="btn btn-primary" type="submit"
 										style="float: right; margin-right: 58px; margin-top: 25px;"
-										value="录入"></td>
+										value="提交"></td>
 								<td><button class="btn btn-primary" type="button"
 										style="float: left; margin-right: 58px; margin-top: 25px;"
 										onclick=";">取消</button></td>
