@@ -21,6 +21,17 @@ public class StockinfoServiceImpl implements StockinfoService{
 		  return stockinfodao.selectBystockCode(stockCode);
 	}
 
+	//根据股票代码更新股票信息
+	@Override
+	public Integer updateByStockCode(stockinfo record){
+		return stockinfodao.updateByStockCode(record);
+	}
+
+	@Override
+	public void insert(stockinfo record) {
+			 stockinfodao.insert(record);
+	}
+	
 	
 	
 }

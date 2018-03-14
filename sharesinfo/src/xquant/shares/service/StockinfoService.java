@@ -8,4 +8,9 @@ public interface StockinfoService {
 
 	
 	List<stockinfo> getSharesInfo(String stockCode);
+	
+	Integer updateByStockCode(stockinfo record);
+	
+	void insert(stockinfo record);
+	
 }
