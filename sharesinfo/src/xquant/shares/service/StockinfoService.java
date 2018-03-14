@@ -1,13 +1,12 @@
 package xquant.shares.service;
 
-import java.util.List;
 
 import xquant.shares.model.stockinfo;
 
 public interface StockinfoService {
 
 	
-	List<stockinfo> getSharesInfo(String stockCode);
+	String getSharesInfo(String stockCode);
 	
 	Integer updateByStockCode(stockinfo record);
 	

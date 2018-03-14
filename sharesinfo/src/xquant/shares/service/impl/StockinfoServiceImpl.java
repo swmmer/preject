@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import xquant.shares.dao.stockinfoDao;
 import xquant.shares.model.stockinfo;
 import xquant.shares.service.StockinfoService;
@@ -15,11 +18,7 @@ public class StockinfoServiceImpl implements StockinfoService{
     private stockinfoDao stockinfodao;
 
 	
-	//查询所有股票
-	@Override
-	public List<stockinfo> getSharesInfo(String stockCode) {
-		  return stockinfodao.selectBystockCode(stockCode);
-	}
+		
 
 	//根据股票代码更新股票信息
 	@Override
@@ -30,6 +29,14 @@ public class StockinfoServiceImpl implements StockinfoService{
 	@Override
 	public void insert(stockinfo record) {
 			 stockinfodao.insert(record);
+	}
+
+	
+	//查询股票信息
+	@Override
+	public String getSharesInfo(String stockCode) {
+		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+		return gson.toJson(stockinfodao.selectBystockCode(stockCode));
 	}
 	
 	
