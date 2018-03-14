@@ -1,17 +1,16 @@
+$(document).keyup(function(event){
+	 if(event.keyCode ==13){
+		    $("#btn_search").trigger("click");
+		  }	 
+});
+			
 /*
  * 查询数据
  * 
  */
-function search(id) {
-	// 当输入框为空的时候保证提示框为空，并且不显示
-	if (id == 'content' && $('#content').val() == '') {
-		$("#tbody_tips").empty();
-		$("#table_tips").css({
-			"display" : "none"
-		});
-		return;
-	}
-
+function search() {
+	//将当前查询条件存入cookie
+	$.cookie('search_cookie',$('#content').val().split(' ')[0]);
 	// 向后台发起查询请求
 	$.ajax({
 		url : 'search.do',
@@ -25,14 +24,32 @@ function search(id) {
 			showData(data);
 		}
 	});
+	
+	
 }
 
-// 对查询的结果进行表格展示
+/*
+ * 对查询的结果进行表格展示(分页)
+ */
 function showData(data) {
-	console.log(data);
 	// 清空原有表格内容
 	$("#tbody_data").empty();
+	//清空分页
+	$("#paging").empty();
+	//用来添加的行
 	var $newTr;
+	//用来添加的分页数字
+	var $newM='';
+	
+	//设置每页显示数目，展示页数
+	var pageItems = 5;
+	var pageNum = Math.ceil(data.length/pageItems);
+	for(var i = 1; i <= pageNum ;i++){
+		$newM = $newM +'<li><a href="#">'+i+'</a></li>';
+	}
+	$("#paging").append('<ul><li class="end"><a href="#">上一页</a></li>'+$newM+'<li class="start"><a href="#">下一页</a></li></ul>');
+	
+	//遍历数据并展示
 	$.each(
 			data,
 			function(idx, obj) {
@@ -58,11 +75,11 @@ function showData(data) {
 						+ obj.maturityDate
 						+ '</td>'
 						+ '<td><a id="btndelete" href="add.html" role="button" class="btn btn-link">修改</a>'
-						+ ' <a id="btndelete" href="#deletetip" role="button" class="btn btn-link" data-toggle="modal">删除</a></td>'
+						+ ' <a id="btndelete" onclick="delRow(this);" href="#deletetip" role="button" class="btn btn-link" data-toggle="modal">删除</a></td>'
 						+ '</tr>');
 				$("#tbody_data").append($newTr);
 			});
-			
+					
 }
 
 /*

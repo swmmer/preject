@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xquant.shares.dao.stockinfoDao">
+  <resultMap id="BaseResultMap" type="xquant.shares.model.stockinfo">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="STOCK_CODE" jdbcType="VARCHAR" property="stockCode" />
+    <result column="STOCK_NAME" jdbcType="VARCHAR" property="stockName" />
+    <result column="TRADING_MARKET" jdbcType="VARCHAR" property="tradingMarket" />
+    <result column="OFFERING_PRICE" jdbcType="DECIMAL" property="offeringPrice" />
+    <result column="PE_RATIO" jdbcType="DECIMAL" property="peRatio" />
+    <result column="LAUNCH_DATE" jdbcType="DATE" property="launchDate" />
+    <result column="MATURITY_DATE" jdbcType="DATE" property="maturityDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, STOCK_CODE, STOCK_NAME, TRADING_MARKET, OFFERING_PRICE, PE_RATIO, LAUNCH_DATE, 
+    MATURITY_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stock_info
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectBystockCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stock_info
+    where  STOCK_CODE like CONCAT('%', #{stockCode,jdbcType=VARCHAR} ,'%')
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from stock_info
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="xquant.shares.model.stockinfo">
+    insert into stock_info (ID, STOCK_CODE, STOCK_NAME, 
+      TRADING_MARKET, OFFERING_PRICE, PE_RATIO, 
+      LAUNCH_DATE, MATURITY_DATE)
+    values (#{id,jdbcType=INTEGER}, #{stockCode,jdbcType=VARCHAR}, #{stockName,jdbcType=VARCHAR}, 
+      #{tradingMarket,jdbcType=VARCHAR}, #{offeringPrice,jdbcType=DECIMAL}, #{peRatio,jdbcType=DECIMAL}, 
+      #{launchDate,jdbcType=DATE}, #{maturityDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="xquant.shares.model.stockinfo">
+    insert into stock_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="stockCode != null">
+        STOCK_CODE,
+      </if>
+      <if test="stockName != null">
+        STOCK_NAME,
+      </if>
+      <if test="tradingMarket != null">
+        TRADING_MARKET,
+      </if>
+      <if test="offeringPrice != null">
+        OFFERING_PRICE,
+      </if>
+      <if test="peRatio != null">
+        PE_RATIO,
+      </if>
+      <if test="launchDate != null">
+        LAUNCH_DATE,
+      </if>
+      <if test="maturityDate != null">
+        MATURITY_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stockCode != null">
+        #{stockCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stockName != null">
+        #{stockName,jdbcType=VARCHAR},
+      </if>
+      <if test="tradingMarket != null">
+        #{tradingMarket,jdbcType=VARCHAR},
+      </if>
+      <if test="offeringPrice != null">
+        #{offeringPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="peRatio != null">
+        #{peRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="launchDate != null">
+        #{launchDate,jdbcType=DATE},
+      </if>
+      <if test="maturityDate != null">
+        #{maturityDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="xquant.shares.model.stockinfo">
+    update stock_info
+    <set>
+      <if test="stockCode != null">
+        STOCK_CODE = #{stockCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stockName != null">
+        STOCK_NAME = #{stockName,jdbcType=VARCHAR},
+      </if>
+      <if test="tradingMarket != null">
+        TRADING_MARKET = #{tradingMarket,jdbcType=VARCHAR},
+      </if>
+      <if test="offeringPrice != null">
+        OFFERING_PRICE = #{offeringPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="peRatio != null">
+        PE_RATIO = #{peRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="launchDate != null">
+        LAUNCH_DATE = #{launchDate,jdbcType=DATE},
+      </if>
+      <if test="maturityDate != null">
+        MATURITY_DATE = #{maturityDate,jdbcType=DATE},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="xquant.shares.model.stockinfo">
+    update stock_info
+    set STOCK_CODE = #{stockCode,jdbcType=VARCHAR},
+      STOCK_NAME = #{stockName,jdbcType=VARCHAR},
+      TRADING_MARKET = #{tradingMarket,jdbcType=VARCHAR},
+      OFFERING_PRICE = #{offeringPrice,jdbcType=DECIMAL},
+      PE_RATIO = #{peRatio,jdbcType=DECIMAL},
+      LAUNCH_DATE = #{launchDate,jdbcType=DATE},
+      MATURITY_DATE = #{maturityDate,jdbcType=DATE}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <delete id="deleteByStockCode" parameterType="java.lang.String">
+    delete from stock_info
+    where STOCK_CODE = #{stockCodeDel,jdbcType=VARCHAR}
+  </delete>
+</mapper>
