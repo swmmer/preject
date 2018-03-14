@@ -25,9 +25,17 @@
     select 
     <include refid="Base_Column_List" />
     from stock_info
-    where  STOCK_CODE like CONCAT('%', #{stockCode,jdbcType=VARCHAR} ,'%')
-    and MATURITY_DATE &gt; now()
+    <choose>
+    	<when test="stockCode != null">
+    		where  STOCK_CODE like CONCAT('%', #{stockCode,jdbcType=VARCHAR} ,'%')
+    		and MATURITY_DATE &gt; now()
+    	</when>
+    	<otherwise>
+    		where MATURITY_DATE &gt; now()
+    	</otherwise>
+    </choose>
   </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from stock_info
     where ID = #{id,jdbcType=INTEGER}
