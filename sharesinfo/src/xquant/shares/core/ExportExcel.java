@@ -1,4 +1,4 @@
-package xquant.shares.model;
+package xquant.shares.core;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -39,19 +39,19 @@ public class ExportExcel<T> {
 
 	public void exportExcel(Collection<T> dataset, OutputStream out)  
     {  
-        exportExcel("测试POI导出EXCEL文档", null, dataset, out, "yyyy-MM-dd");  
+        exportExcel("EXCEL文档", null, dataset, out, "yyyy-MM-dd");  
     }  
   
     public void exportExcel(String[] headers, Collection<T> dataset,  
             OutputStream out)  
     {  
-        exportExcel("测试POI导出EXCEL文档", headers, dataset, out, "yyyy-MM-dd");  
+        exportExcel("EXCEL文档", headers, dataset, out, "yyyy-MM-dd");  
     }  
   
     public void exportExcel(String[] headers, Collection<T> dataset,  
             OutputStream out, String pattern)  
     {  
-        exportExcel("测试POI导出EXCEL文档", headers, dataset, out, pattern);  
+        exportExcel("EXCEL文档", headers, dataset, out, pattern);  
     }  
 	
     

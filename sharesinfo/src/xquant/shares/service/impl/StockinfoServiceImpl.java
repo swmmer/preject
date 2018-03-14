@@ -19,8 +19,8 @@ import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import xquant.shares.core.ExportExcel;
 import xquant.shares.dao.stockinfoDao;
-import xquant.shares.model.ExportExcel;
 import xquant.shares.model.stockinfo;
 import xquant.shares.service.StockinfoService;
 
@@ -66,7 +66,7 @@ public class StockinfoServiceImpl implements StockinfoService{
 		
 		 String path = "E://NewFileName.xls";
 		 String[] headers =  
-	          { "股票代码", "股票名称", "交易市场", "发行价格(元/股)", "发行市盈率","上市日期","到期日" };  
+	          { "序号","股票代码", "股票名称", "交易市场", "发行价格(元/股)", "发行市盈率","上市日期","到期日" };  
 	     
 	     ExportExcel<stockinfo> ex = new ExportExcel<stockinfo>(); 
 	     OutputStream out;
