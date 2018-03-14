@@ -13,7 +13,7 @@ function search() {
 	$.cookie('search_cookie',$('#content').val().split(' ')[0]);
 	// 向后台发起查询请求
 	$.ajax({
-		url : 'search.do',
+		url : 'getSharesInfo.do',
 		type : 'post',
 		data : {
 			stockCode : $('#content').val().split(' ')[0]
@@ -89,7 +89,7 @@ $(document).ready(function() {
 	$('#content').typeahead({
 		source : function(query, process) {
 			$.ajax({
-				url : 'search.do',
+				url : 'getSharesInfo.do',
 				type : 'POST',
 				dataType : 'JSON',
 				data : {

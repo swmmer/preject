@@ -8,8 +8,10 @@
 <link rel="stylesheet" type="text/css"
 	href="bootstrap/css/bootstrap.min.css">
 	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/search.js"></script>
+	<script type="text/javascript" src="js/delete.js"></script>
 </head>
 <body style="margin: 10px;">
 	<div class="container-fluid" style="margin-top: 20px;">
@@ -39,7 +41,7 @@
 					<div class="input-append">
 						<input id="content" class="input" type="text" autocomplete="off"
 							data-provide="typeahead" />
-						<button id="btn_search" class="btn btn-primary"
+						<button id="btn_search" class="btn btn-primary "
 							onclick="search(this.id);">查找</button>
 					</div>
 
@@ -49,7 +51,7 @@
 					<button class="btn btn-primary" id="output" type="button"
 						style="float: right;">导出</button>
 
-					<table class="table table-bordered table-striped"
+					<table class="table table-bordered table-striped table-hover"
 						style="margin-top: 20px;">
 						<thead>
 							<tr>
@@ -67,6 +69,9 @@
 
 						</tbody>
 					</table>
+					
+					<!-- 分页 -->
+					<div class="pagination pagination-centered" id="paging"></div>
 				</div>
 			</div>
 
@@ -86,7 +91,7 @@
 		</div>
 		<div class="modal-footer">
 			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-			<button class="btn btn-primary">确定</button>
+			<button class="btn btn-primary" onclick="delData()"  data-dismiss="modal" aria-hidden="true">确定</button>
 		</div>
 	</div>
 
