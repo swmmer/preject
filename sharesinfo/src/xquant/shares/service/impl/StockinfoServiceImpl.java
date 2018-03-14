@@ -60,7 +60,7 @@ public class StockinfoServiceImpl implements StockinfoService{
 		
 		 String path = "E://NewFileName.xls";
 		 String[] headers =  
-	          { "序号","股票代码", "股票名称", "交易市场", "发行价格(元/股)", "发行市盈率","上市日期","到期日" };  
+	          {"股票代码", "股票名称", "交易市场", "发行价格(元/股)", "发行市盈率","上市日期","到期日" };  
 	     
 	     ExportExcel<stockinfo> ex = new ExportExcel<stockinfo>(); 
 	     OutputStream out;
