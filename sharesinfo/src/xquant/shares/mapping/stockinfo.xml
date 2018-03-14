@@ -132,4 +132,9 @@
       MATURITY_DATE = #{maturityDate,jdbcType=DATE}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+  
+  <delete id="deleteByStockCode" parameterType="java.lang.String">
+    delete from stock_info
+    where STOCK_CODE = #{stockCodeDel,jdbcType=VARCHAR}
+  </delete>
 </mapper>

@@ -39,6 +39,16 @@ public class StockinfoServiceImpl implements StockinfoService{
 		return gson.toJson(stockinfodao.selectBystockCode(stockCode));
 	}
 	
-	
+	@Override
+	public String deleteByStockCode(String stockCodeDel,String stockCodeSearch){
+		
+		stockinfodao.deleteByStockCode(stockCodeDel);
+		List<stockinfo> sfList = stockinfodao.selectBystockCode(stockCodeSearch);
+		
+		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+		String stockOfJson =gson.toJson(sfList);
+		return stockOfJson;	
+		
+	}
 	
 }

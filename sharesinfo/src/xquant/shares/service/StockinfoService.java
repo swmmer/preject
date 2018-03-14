@@ -12,4 +12,5 @@ public interface StockinfoService {
 	
 	void insert(stockinfo record);
 	
+	String deleteByStockCode(String stockCodeDel,String stockCodeSel);
 }
