@@ -27,7 +27,7 @@ public class StockinfoController {
 	private StockinfoService stockinfoService;
      
 	
-	@RequestMapping("getSharesInfo") 
+	@RequestMapping(value = "getSharesInfo",produces = "application/json;charset=utf-8") 
 	@ResponseBody
     public String getInfobystockCode(String stockCode ,HttpServletRequest request){  
             return stockinfoService.getSharesInfo(stockCode);  
