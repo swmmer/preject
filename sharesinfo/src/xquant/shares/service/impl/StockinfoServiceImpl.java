@@ -1,17 +1,11 @@
 package xquant.shares.service.impl;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,15 +23,7 @@ public class StockinfoServiceImpl implements StockinfoService{
 	@Autowired  
     private stockinfoDao stockinfodao;
 
-	
-		
-
-	//根据股票代码更新股票信息
-	@Override
-	public Integer updateByStockCode(stockinfo record){
-		return stockinfodao.updateByStockCode(record);
-	}
-
+	//插入
 	@Override
 	public void insert(stockinfo record) {
 			 stockinfodao.insert(record);
@@ -51,6 +37,8 @@ public class StockinfoServiceImpl implements StockinfoService{
 		return gson.toJson(stockinfodao.selectBystockCode(stockCode));
 	}
 	
+	
+	//删除
 	@Override
 	public String deleteByStockCode(String stockCodeDel,String stockCodeSearch){
 		
@@ -62,6 +50,8 @@ public class StockinfoServiceImpl implements StockinfoService{
 		return stockOfJson;	
 		
 	}
+	
+	
 	
 	@Override
 	public void exportExcel(String stockCodeSearch){
@@ -89,6 +79,12 @@ public class StockinfoServiceImpl implements StockinfoService{
 			e.printStackTrace();
 		}
 	      
+	}
+
+//修改信息
+	@Override
+	public void updateByid(stockinfo record) {
+		 stockinfodao.updateByPrimaryKey(record);
 	}
 	
 	

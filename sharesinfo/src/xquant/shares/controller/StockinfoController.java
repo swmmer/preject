@@ -1,7 +1,6 @@
 package xquant.shares.controller;
 
-import java.text.ParseException;
-
+import xquant.shares.core.Result;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import xquant.shares.core.Result;
 import xquant.shares.model.stockinfo;
 import xquant.shares.service.StockinfoService;
 
@@ -28,29 +26,24 @@ public class StockinfoController {
             
 	}
 	
+	//修改
+	@RequestMapping("updatesharesinfo")
+	public void updatesharesinfo(stockinfo record) {
+		stockinfoService.updateByid(record);
+		System.out.println(1);
+	}
+	
+	
+	
+	//插入
 	@RequestMapping("insertsharesinfo")
-	public void insertsharesinfo(stockinfo record) throws ParseException{
-		
-//		stockinfo si = new stockinfo();
-//		si.setStockCode("7000001");
-//		
-//		si.setStockName("民生银行");
-//		si.setTradingMarket("上交所");
-//		BigDecimal b = new BigDecimal("11.00000");
-//		si.setOfferingPrice(b);
-//		BigDecimal pe = new BigDecimal("6.76000");
-//		si.setPeRatio(pe);
-//		
-//		DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
-//		Date d1 = dateFormat1.parse("1999-11-10");
-//		si.setLaunchDate(d1);
-//		DateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
-//		Date d2 = dateFormat2.parse("2049-11-10");
-//		si.setMaturityDate(d2);
+	public void insertsharesinfo(stockinfo record){
 		stockinfoService.insert(record);
 		System.out.println(1);
 	}
 	
+	
+	//删除
 	@RequestMapping("deleteByStockCode")
 	@ResponseBody
 	public String deleteByStockCode(String stockCodeDel,String stockCodeSearch,HttpServletRequest request){
@@ -61,7 +54,7 @@ public class StockinfoController {
 	}
     
 	@RequestMapping("exportExcelByStockCodeSearch")
-	public void exportExcelByStockCodeSearch(String stockCodeSearch,HttpServletResponse response,HttpServletRequest request){
+	public void exportExcelByStockCodeSearch(String stockCodeSearch,HttpServletResponse response){
 		
 		stockinfoService.exportExcel(stockCodeSearch);
 		String path = "E://NewFileName.xls";
@@ -69,4 +62,6 @@ public class StockinfoController {
 	}
 	
 	
+          
+      
 }
