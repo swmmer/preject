@@ -16,6 +16,30 @@ $(function() {
 	})
 });
 
+function validate_add(){
+	var stockinfo = new Object();
+	stockinfo.stock_code = $("stock_code").val();
+	stockinfo.stock_name = $("stock_name").val();
+	stockinfo.trading_market = $("#trading_market").val();
+	stockinfo.offering_price = $("#offering_price").val();
+	stockinfo.pe_ratio = $("#pe_ratio").val();
+	stockinfo.launch_date = $("#launch_date").val();
+	stockinfo.maturity_date = $("#maturity_date").val();
+	
+	$.ajax({
+		url : 'insertsharesinfo.do',
+		type : 'post',
+		data : {
+			StockInfo: stockinfo
+		},
+		dataType : 'JSON',
+		success : function(data) {
+			//回调函数				
+		}
+	});
+}
+
+
 
 var stock_code = $("stock_code").val();
 var stock_name = $("stock_name").val();
@@ -27,6 +51,7 @@ var maturity_date = $("#maturity_date").val();
 
 //检查股票代码是否正常
 function check_stockcode() {
+	var stock_code = $("stock_code").val();
 	if ((stock_code.toString).length < 6) {
 		$("#stock_code").val("");
 	}
@@ -58,7 +83,7 @@ function compare_date() {
 		alert("到期日必须大于上市日期");
 	} else {
 		$.ajax({
-			url : 'loggingstockinfo.do',
+			url : 'insertsharesinfo.do',
 			type : 'post',
 			data : {
 				stockCode : stock_code,

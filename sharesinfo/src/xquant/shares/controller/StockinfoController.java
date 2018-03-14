@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import xquant.shares.model.stockinfo;
 import xquant.shares.service.StockinfoService;
 
@@ -29,18 +30,18 @@ public class StockinfoController {
 	
 	//修改
 	@RequestMapping("updatesharesinfo")
-	public void updatesharesinfo(stockinfo record) {
+	@ResponseBody
+	public void updatesharesinfo(stockinfo record,HttpServletRequest request) {
 		stockinfoService.updateByid(record);
-		System.out.println(1);
 	}
 	
 	
-	
+
 	//插入
 	@RequestMapping("insertsharesinfo")
-	public void insertsharesinfo(stockinfo record){
-		stockinfoService.insert(record);
-		System.out.println(1);
+	@ResponseBody
+	public void insertsharesinfo(stockinfo StockInfo,HttpServletRequest request){
+		stockinfoService.insert(StockInfo);
 	}
 	
 	
