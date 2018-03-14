@@ -16,7 +16,7 @@ $(function() {
 	})
 });
 
-function valdiate_add(){
+function validate_add(){
 	var stockinfo = new Object();
 	stockinfo.stock_code = $("stock_code").val();
 	stockinfo.stock_name = $("stock_name").val();
