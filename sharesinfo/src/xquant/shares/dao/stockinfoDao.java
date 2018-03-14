@@ -8,20 +8,18 @@ public interface stockinfoDao {
     int deleteByPrimaryKey(Integer id);
 
     void insert(stockinfo record);
-
+    
     int insertSelective(stockinfo record);
 
     stockinfo selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(stockinfo record);
 
-    int updateByPrimaryKey(stockinfo record);
+    void updateByPrimaryKey(stockinfo record);
     
     //查询股票信息
 	List<stockinfo> selectBystockCode(String stockCode);
 	
-	//根据股票代码更新股票信息
-	int updateByStockCode(stockinfo record);
 	
 	//根据股票代码删除股票信息
 	int deleteByStockCode(String stockCodeDel);

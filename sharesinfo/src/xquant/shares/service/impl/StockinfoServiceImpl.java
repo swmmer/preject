@@ -29,15 +29,7 @@ public class StockinfoServiceImpl implements StockinfoService{
 	@Autowired  
     private stockinfoDao stockinfodao;
 
-	
-		
-
-	//根据股票代码更新股票信息
-	@Override
-	public Integer updateByStockCode(stockinfo record){
-		return stockinfodao.updateByStockCode(record);
-	}
-
+	//插入
 	@Override
 	public void insert(stockinfo record) {
 			 stockinfodao.insert(record);
@@ -51,6 +43,8 @@ public class StockinfoServiceImpl implements StockinfoService{
 		return gson.toJson(stockinfodao.selectBystockCode(stockCode));
 	}
 	
+	
+	//删除
 	@Override
 	public String deleteByStockCode(String stockCodeDel,String stockCodeSearch){
 		
@@ -62,6 +56,8 @@ public class StockinfoServiceImpl implements StockinfoService{
 		return stockOfJson;	
 		
 	}
+	
+	
 	
 	@Override
 	public void exportExcel(String stockCodeSearch){
@@ -89,6 +85,12 @@ public class StockinfoServiceImpl implements StockinfoService{
 			e.printStackTrace();
 		}
 	      
+	}
+
+//修改信息
+	@Override
+	public void updateByid(stockinfo record) {
+		 stockinfodao.updateByPrimaryKey(record);
 	}
 	
 	
