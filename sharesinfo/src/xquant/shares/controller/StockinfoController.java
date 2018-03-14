@@ -32,20 +32,13 @@ public class StockinfoController {
 	
 	//修改
 	@RequestMapping("updatesharesinfo")
-	public void updatesharesinfo(stockinfo record) {
+	@ResponseBody
+	public void updatesharesinfo(stockinfo record,HttpServletRequest request) {
 		stockinfoService.updateByid(record);
-		System.out.println(1);
 	}
 	
 	
-/*	
-	//插入
-	@RequestMapping("insertsharesinfo")
-	public void insertsharesinfo(stockinfo record){
-		stockinfoService.insert(record);
-		System.out.println(1);
-	}
-*/	
+
 	//插入
 	@RequestMapping("insertsharesinfo")
 	@ResponseBody
