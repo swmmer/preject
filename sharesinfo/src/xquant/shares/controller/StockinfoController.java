@@ -58,7 +58,8 @@ public class StockinfoController {
 	}
 	
 	@RequestMapping("deleteByStockCode")
-	public String deleteByStockCode(String stockCodeDel,String stockCodeSearch){
+	@ResponseBody
+	public String deleteByStockCode(String stockCodeDel,String stockCodeSearch,HttpServletRequest request){
 		
 		String stockOfJson = stockinfoService.deleteByStockCode(stockCodeDel,stockCodeSearch);
 		System.out.println(stockOfJson);
