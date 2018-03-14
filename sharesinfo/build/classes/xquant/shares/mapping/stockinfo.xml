@@ -25,15 +25,17 @@
     select 
     <include refid="Base_Column_List" />
     from stock_info
+    <where>
     <choose>
-    	<when test="stockCode != null">
-    		where  STOCK_CODE like CONCAT('%', #{stockCode,jdbcType=VARCHAR} ,'%')
+    	<when test="_parameter != null">
+            STOCK_CODE like CONCAT('%', #{stockCode,jdbcType=VARCHAR} ,'%')
     		and MATURITY_DATE &gt; now()
     	</when>
     	<otherwise>
-    		where MATURITY_DATE &gt; now()
+    	     MATURITY_DATE &gt; now()
     	</otherwise>
     </choose>
+    </where>
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
