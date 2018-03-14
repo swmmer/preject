@@ -19,8 +19,8 @@ import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import xquant.shares.core.ExportExcel;
 import xquant.shares.dao.stockinfoDao;
-import xquant.shares.model.ExportExcel;
 import xquant.shares.model.stockinfo;
 import xquant.shares.service.StockinfoService;
 
