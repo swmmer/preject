@@ -6,7 +6,7 @@ function delRow(obj){
 function delData(){
 	console.log("进入删除");
 	$.ajax({
-		url : 'toDelData.do',
+		url : 'deleteByStockCode.do',
 		type : 'post',
 		data : {
 			stockCodeDel : stockCodeTemp ,

@@ -1,22 +1,15 @@
 package xquant.shares.controller;
 
-import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
+import xquant.shares.core.Result;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import xquant.shares.core.Result;
 import xquant.shares.model.stockinfo;
 import xquant.shares.service.StockinfoService;
 
@@ -27,42 +20,48 @@ public class StockinfoController {
 	private StockinfoService stockinfoService;
      
 	
-	@RequestMapping("getSharesInfo") 
+	@RequestMapping(value = "getSharesInfo",produces = "application/json;charset=utf-8") 
 	@ResponseBody
     public String getInfobystockCode(String stockCode ,HttpServletRequest request){  
             return stockinfoService.getSharesInfo(stockCode);  
             
 	}
 	
+	//修改
+	@RequestMapping("updatesharesinfo")
+	public void updatesharesinfo(stockinfo record) {
+		stockinfoService.updateByid(record);
+		System.out.println(1);
+	}
+	
+	
+	
+	//插入
 	@RequestMapping("insertsharesinfo")
-	public void insertsharesinfo(stockinfo record) throws ParseException{
-		
-//		stockinfo si = new stockinfo();
-//		si.setStockCode("7000001");
-//		
-//		si.setStockName("民生银行");
-//		si.setTradingMarket("上交所");
-//		BigDecimal b = new BigDecimal("11.00000");
-//		si.setOfferingPrice(b);
-//		BigDecimal pe = new BigDecimal("6.76000");
-//		si.setPeRatio(pe);
-//		
-//		DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
-//		Date d1 = dateFormat1.parse("1999-11-10");
-//		si.setLaunchDate(d1);
-//		DateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
-//		Date d2 = dateFormat2.parse("2049-11-10");
-//		si.setMaturityDate(d2);
+	public void insertsharesinfo(stockinfo record){
 		stockinfoService.insert(record);
 		System.out.println(1);
 	}
 	
-	@RequestMapping("deleteByStockCode")
-	public String deleteByStockCode(String stockCodeDel,String stockCodeSearch){
+	
+	//删除
+	@RequestMapping(value = "deleteByStockCode",produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public String deleteByStockCode(String stockCodeDel,String stockCodeSearch,HttpServletRequest request){
 		
 		String stockOfJson = stockinfoService.deleteByStockCode(stockCodeDel,stockCodeSearch);
-		System.out.println(stockOfJson);
 		return stockOfJson;
 	}
-          	
+    
+	@RequestMapping("exportExcelByStockCodeSearch")
+	public void exportExcelByStockCodeSearch(String stockCodeSearch,HttpServletResponse response){
+		
+		stockinfoService.exportExcel(stockCodeSearch);
+		String path = "E://NewFileName.xls";
+		Result.download(path,response);
+	}
+	
+	
+          
+      
 }
