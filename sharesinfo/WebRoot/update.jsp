@@ -14,6 +14,34 @@
 
 <script src="js/add.js"></script>
 <script type="text/javascript">
+//获取修改记录的内容
+$(function(){
+	var stockcodeTemp = location.search;
+	if(stockcodeTemp.substr(1)== -1 || stockcodeTemp.substr(1) == ""){
+		return;
+	}
+	$.ajax({
+		url : 'getSharesInfo.do',
+		type : 'post',
+		data : {
+			stockCode : stockcodeTemp.substr(1)
+		},
+		dataType : 'JSON',
+		success : function(data) {
+			console.log(data);
+			//将该条记录的字段写入到每个输入框
+			$("#stock_id").val(data[0].id);
+			$("#stock_code").val(data[0].stockCode);
+			$("#stock_name").val(data[0].stockName);
+			$("#trading_market").val(data[0].tradingMarket);
+			$("#offering_price").val(data[0].offeringPrice);
+			$("#pe_ratio").val(data[0].peRatio);
+			$("#launch_date").val(data[0].launchDate);
+			$("#maturity_date").val(data[0].maturityDate);
+		}
+	});
+	
+});
 </script>
 
 <title>衡泰股票系统-股票信息录入</title>
@@ -46,6 +74,7 @@
 				<div class="span8">
 					<form class="form-inline"
 						action="<%=request.getContextPath() %>/insertsharesinfo.do" method="post">
+						<input type="hidden" id="stock_id" name="id"/>
 						<table class="table">
 							<tr>
 								<td><span>股票代码：</span> <input type="text"
