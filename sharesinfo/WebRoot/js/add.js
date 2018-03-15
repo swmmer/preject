@@ -4,12 +4,12 @@
 
 // 日期选择器
 $(function() {
-	$("#date1").datepicker({
+	$("#launch_date").datepicker({
 		dateFormat : "yy-mm-dd",
 		changeMonth : true,
 		changeYear : true
 	});
-	$("#date2").datepicker({
+	$("#maturity_date").datepicker({
 		dateFormat : "yy-mm-dd",
 		changeMonth : true,
 		changeyear : true
