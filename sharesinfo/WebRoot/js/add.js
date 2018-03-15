@@ -124,14 +124,25 @@ function compare_date() {
 	}
 }
 
+//限定股票名称只能为汉字
+function checkstock_name(){
+	var stock_name = $("#stock_name").val();
+	var reg = /^[\u4e00-\u9fa5]{0,}$/;
+	if(!reg.exec(stock_name)){
+		$("#stock_name").val('');
+	}
+}
+
+//限定发行价格只能为整数和小数
 function checkoffering_price(){
 	var offering_price = $("#offering_price").val();
-	var reg = /^[0-9]*$/g;
+	var reg = /^[0-9]+\.{0,1}[0-9]{0,2}$/g;
 	if(!reg.exec(offering_price)){
 		$("#offering_price").val('')
 	}
 }
 
+//限定发行市盈率只能为整数和小数
 function checkpe_ratio(){
 	var pe_ratio = $("#pe_ratio").val();
 	var reg = /^[0-9]+\.{0,1}[0-9]{0,2}$/g;

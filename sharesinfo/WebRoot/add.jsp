@@ -56,8 +56,8 @@
 									<td><span id="errorTip"></span></td>
 							</tr>
 							<tr>
-								<td><span>股票名称：</span> <input type="text" id="stock_name"
-									name="stockName" 									
+								<td><span>股票名称：</span> <input type="text" placeholder="请输入中文股票名称" id="stock_name"
+									name="stockName" 	onblur = "checkstock_name();"								
 									required /></td>
 								<td><span>交易市场：</span> <select 
 									id="trading_market" name="tradingMarket" 
@@ -75,9 +75,9 @@
 							</tr>
 							<tr>
 								<td><span>上市日期：</span> <input id="launch_date" type="text" name="launchDate"
-									placeholder="请选择日期" /></td>
+									placeholder="请选择日期" required/></td>
 								<td><span>到期日：</span> <input id="maturity_date" type="text" name="maturityDate"
-									placeholder="请选择日期" /></td>
+									placeholder="请选择日期" required/></td>
 							</tr>
 
 							<tr>
