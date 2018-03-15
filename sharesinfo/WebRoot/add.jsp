@@ -58,7 +58,7 @@
 							</tr>
 							<tr>
 								<td><span>股票名称：</span> <input type="text" placeholder="请输入中文股票名称" id="stock_name"
-									name="stockName" 	onblur = "checkstock_name();"								
+									 name="stockName" MaxLength=10	onblur = "checkstock_name();"								
 									required /></td>
 								<td><span>交易市场：</span> <select 
 									id="trading_market" name="tradingMarket" 
@@ -70,9 +70,9 @@
 
 							<tr>
 								<td><span>发行价格：</span> <input type="text"
-									id="offering_price" name="offeringPrice" onblur = "checkoffering_price();"required /></td>
+									id="offering_price" name="offeringPrice" MaxLength=5 onblur = "checkoffering_price();"  required /></td>
 								<td><span>发行市盈率：</span> <input type="text" id="pe_ratio"
-									name=peRatio onblur = "checkpe_ratio();"required /></td>
+									name=peRatio MaxLength=5 onblur = "checkpe_ratio();"required /></td>
 							</tr>
 							<tr>
 								<td><span>上市日期：</span> <input id="launch_date" type="text" name="launchDate"
