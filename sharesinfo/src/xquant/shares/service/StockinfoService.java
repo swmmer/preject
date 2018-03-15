@@ -10,7 +10,7 @@ public interface StockinfoService {
 	
 	void insert(stockinfo record);
 	
-	String deleteByStockCode(String stockCodeDel,String stockCodeSearch);
+	String deleteByStockCode(String stockCodeDel);
 	
 	void exportExcel(String stockCodeSearch);
 	

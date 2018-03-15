@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,14 +39,11 @@ public class StockinfoServiceImpl implements StockinfoService{
 	
 	//删除
 	@Override
-	public String deleteByStockCode(String stockCodeDel,String stockCodeSearch){
+	public String deleteByStockCode(String stockCodeDel){
 		
 		stockinfodao.deleteByStockCode(stockCodeDel);
-		List<stockinfo> sfList = stockinfodao.selectBystockCode(stockCodeSearch);
-		
-		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-		String stockOfJson =gson.toJson(sfList);
-		return stockOfJson;	
+		Gson gson = new Gson();
+		return gson.toJson("success");	
 		
 	}
 	

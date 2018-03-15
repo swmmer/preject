@@ -49,9 +49,9 @@ public class StockinfoController {
 	//删除
 	@RequestMapping(value = "deleteByStockCode",produces = "application/json;charset=utf-8")
 	@ResponseBody
-	public String deleteByStockCode(String stockCodeDel,String stockCodeSearch,HttpServletRequest request){
+	public String deleteByStockCode(String stockCodeDel,HttpServletRequest request){
 		
-		String stockOfJson = stockinfoService.deleteByStockCode(stockCodeDel,stockCodeSearch);
+		String stockOfJson = stockinfoService.deleteByStockCode(stockCodeDel);
 		return stockOfJson;
 	}
     
