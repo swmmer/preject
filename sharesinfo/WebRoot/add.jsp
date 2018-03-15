@@ -51,6 +51,7 @@
 								<td><span>股票代码：</span> <input type="text"
 									placeholder="请输入6位股票代码" id="stock_code" MaxLength=6
 									onblur="check_stockcode();" name="stockCode" required /></td>
+									<td><span id="errorTip"></span></td>
 							</tr>
 							<tr>
 								<td><span>股票名称：</span> <input type="text" id="stock_name"

@@ -1,7 +1,6 @@
 package xquant.shares.controller;
 
 
-import xquant.shares.core.Result;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 
+import xquant.shares.core.Result;
 import xquant.shares.model.stockinfo;
 import xquant.shares.service.StockinfoService;
 
@@ -67,11 +68,14 @@ public class StockinfoController {
 	@RequestMapping("checkstockcode")
 	@ResponseBody
 	public String checkstockcode(String stockcode,HttpServletRequest request){
+	      
 		String s = stockinfoService.getSharesInfo(stockcode);
-		if(s.length() > 0){
-			return null;
+		Gson gson = new Gson();
+		if(s!=null) {
+			return s;
+		}else {
+			return gson.toJson("success");
 		}
-		return "success";
 	}
 	
 	

@@ -91,20 +91,22 @@ function check_stockcode() {
 	if (stock_code.toString().length < 6) {
 		$("#stock_code").val("");
 	} else {
-			$.ajax({
-				url : 'checkstockcode.do',
-				type : 'post',
-				date : {
-					"stockCode" : stock_code
-				},
-				dataType : 'JSON',
-				success : function(data) {
-					// 回调函数
-					if(date == null)
-					$("#stock_code").html("该股票代码已经存在");
+		$.ajax({
+			url : 'checkstockcode.do',
+			type : 'post',
+			data : {
+				stockcode : $("#stock_code").val()
+			},
+			dataType : 'JSON',
+			success : function(data) {
+				if(data[0] == ["success"] ){
+					$("#errorTip").html("");	
+				}else{
+					$("#errorTip").html("股票代码已存在！");
 				}
-			})
-		}
+			}
+		});
+	}
 }
 
 // 比较输入的到期日是否大于上市日期
