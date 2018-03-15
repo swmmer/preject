@@ -122,3 +122,19 @@ function compare_date() {
 		alert("到期日必须大于上市日期");
 	}
 }
+
+function checkoffering_price(){
+	var offering_price = $("#offering_price").val();
+	var reg = /^[0-9]*$/g;
+	if(!reg.exec(offering_price)){
+		$("#offering_price").val('')
+	}
+}
+
+function checkpe_ratio(){
+	var pe_ratio = $("#pe_ratio").val();
+	var reg = /^[0-9]+\.{0,1}[0-9]{0,2}$/g;
+	if(!reg.exec(pe_ratio)){
+		$("#pe_ratio").val('')
+	}
+}

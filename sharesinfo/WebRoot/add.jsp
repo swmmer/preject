@@ -55,16 +55,21 @@
 							</tr>
 							<tr>
 								<td><span>股票名称：</span> <input type="text" id="stock_name"
-									name="stockName" required /></td>
-								<td><span>交易市场：</span> <input type="text"
-									id="trading_market" name="tradingMarket" required /></td>
+									name="stockName" 									
+									required /></td>
+								<td><span>交易市场：</span> <select 
+									id="trading_market" name="tradingMarket" 
+									<option ></option>									
+									<option value="上交所">上交所</option>									
+                                    <option value="深交所">深交所</option> 
+                                    required/></select></td>
 							</tr>
 
 							<tr>
 								<td><span>发行价格：</span> <input type="text"
-									id="offering_price" name="offeringPrice" required /></td>
+									id="offering_price" name="offeringPrice" onblur = "checkoffering_price();"required /></td>
 								<td><span>发行市盈率：</span> <input type="text" id="pe_ratio"
-									name=peRatio required /></td>
+									name=peRatio onblur = "checkpe_ratio();"required /></td>
 							</tr>
 							<tr>
 								<td><span>上市日期：</span> <input id="launch_date" type="text" name="launchDate"
