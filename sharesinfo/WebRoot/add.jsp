@@ -47,7 +47,7 @@
 				</div>
 				<div class="span8">
 					<form class="form-inline"
-						action="<%=request.getContextPath() %>/insertsharesinfo.do" method="post">
+						action="<%=request.getContextPath() %>/insertsharesinfo.do" method="post" onsubmit="return compare_date();">
 						<table class="table">
 							<tr>
 								<td><span>股票代码：</span> <input type="text"
@@ -83,7 +83,7 @@
 							<tr>
 								<td><input class="btn btn-primary" type="submit"
 										style="float: right; margin-right: 58px; margin-top: 25px;"
-										onclick="compare_date();" value = "提交"></td>
+									value = "提交"></td>
 								<td><button class="btn btn-primary" type="button"
 										style="float: left; margin-right: 58px; margin-top: 25px;"
 										onclick="window.location.href='main.jsp'">取消</button></td>
