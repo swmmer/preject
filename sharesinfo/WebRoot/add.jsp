@@ -17,6 +17,9 @@
 //获取修改记录的内容
 $(function(){
 	var stockcodeTemp = location.search;
+	if(stockcodeTemp.substr(1)== -1 || stockcodeTemp.substr(1) == ""){
+		return;
+	}
 	$.ajax({
 		url : 'getSharesInfo.do',
 		type : 'post',
@@ -90,9 +93,9 @@ $(function(){
 									name=peRatio required /></td>
 							</tr>
 							<tr>
-								<td><span>上市日期：</span> <input id="date1" type="text" name="launchDate"
+								<td><span>上市日期：</span> <input id="launch_date" type="text" name="launchDate"
 									placeholder="请选择日期" /></td>
-								<td><span>到期日：</span> <input id="date2" type="text" name="maturityDate"
+								<td><span>到期日：</span> <input id="maturity_date" type="text" name="maturityDate"
 									placeholder="请选择日期" /></td>
 							</tr>
 
