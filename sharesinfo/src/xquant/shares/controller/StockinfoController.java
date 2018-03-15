@@ -69,13 +69,8 @@ public class StockinfoController {
 	@ResponseBody
 	public String checkstockcode(String stockcode,HttpServletRequest request){
 	      
-		String s = stockinfoService.getSharesInfo(stockcode);
-		Gson gson = new Gson();
-		if(s!=null) {
-			return s;
-		}else {
-			return gson.toJson("success");
-		}
+		return stockinfoService.getSharesInfo(stockcode);
+		
 	}
 	
 	

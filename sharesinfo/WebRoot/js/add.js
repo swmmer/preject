@@ -99,10 +99,10 @@ function check_stockcode() {
 			},
 			dataType : 'JSON',
 			success : function(data) {
-				if(data[0] == ["success"] ){
-					$("#errorTip").html("");	
-				}else{
+				if(data.length == 1){
 					$("#errorTip").html("股票代码已存在！");
+				}else{
+					$("#errorTip").html("");	
 				}
 			}
 		});
