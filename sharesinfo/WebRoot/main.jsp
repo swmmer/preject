@@ -34,7 +34,7 @@
 					</div>
 					<div id="collapseTwo" class="accordion-body collapse">
 						<div class="accordion-inner">
-							<a href="toMain.do">股票查询</a>
+							<a href="main.jsp">股票查询</a>
 						</div>
 					</div>
 				</div>
@@ -48,7 +48,7 @@
 
 					<button class="btn btn-primary" type="button"
 						style="float: right; margin-left: 10px;"
-						onclick="location.href='toAdd.do'">录入</button>
+						onclick="location.href='add.jsp'">录入</button>
 					<button class="btn btn-primary" id="output" type="button"
 						style="float: right;" onclick="output();">导出</button>
 

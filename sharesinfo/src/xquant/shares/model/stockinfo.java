@@ -3,6 +3,8 @@ package xquant.shares.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class stockinfo {
     private Integer id;
 
@@ -15,9 +17,11 @@ public class stockinfo {
     private BigDecimal offeringPrice;
 
     private BigDecimal peRatio;
-
+    
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date launchDate;
-
+    
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date maturityDate;
 
     public Integer getId() {
