@@ -14,9 +14,32 @@
 
 
 <script src="js/add.js"></script>
-<!--
-onblur="check_stockcode();"
--->
+<script type="text/javascript">
+//获取修改记录的内容
+$(function(){
+	var stockcodeTemp = location.search;
+	$.ajax({
+		url : 'getSharesInfo.do',
+		type : 'post',
+		data : {
+			stockCode : stockcodeTemp.substr(1)
+		},
+		dataType : 'JSON',
+		success : function(data) {
+			console.log(data);
+			//将该条记录的字段写入到每个输入框
+			$("#stock_code").val(data[0].stockCode);
+			$("#stock_name").val(data[0].stockName);
+			$("#trading_market").val(data[0].tradingMarket);
+			$("#offering_price").val(data[0].offeringPrice);
+			$("#pe_ratio").val(data[0].peRatio);
+			$("#launch_date").val(data[0].launchDate);
+			$("#maturity_date").val(data[0].maturityDate);
+		}
+	});
+	
+});
+</script>
 
 <title>录入信息</title>
 </head>

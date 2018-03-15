@@ -13,6 +13,12 @@
 	<script type="text/javascript" src="js/search.js"></script>
 	<script type="text/javascript" src="js/delete.js"></script>
 	<script type="text/javascript" src="js/output.js"></script>
+	<script type="text/javascript">
+	function toModify(obj){
+		//修改记录的参数传递
+		location.href="add.jsp?"+$(obj).parent().siblings().eq(0).html();
+	}
+	</script>
 </head>
 <body style="margin: 10px;">
 	<div class="container-fluid" style="margin-top: 20px;">
