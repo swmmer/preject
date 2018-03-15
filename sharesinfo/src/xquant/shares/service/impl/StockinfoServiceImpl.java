@@ -48,7 +48,7 @@ public class StockinfoServiceImpl implements StockinfoService{
 	}
 	
 	
-	
+	//导出
 	@Override
 	public void exportExcel(String stockCodeSearch){
 		

@@ -15,14 +15,19 @@ public interface stockinfoDao {
 
     int updateByPrimaryKeySelective(stockinfo record);
     
-    //根据id修改信息
+    /*
+     * 根据id修改股票信息
+     */
     void updateByPrimaryKey(stockinfo record);
     
-    //查询股票信息
+    /*
+     * 查询股票信息
+     */
 	List<stockinfo> selectBystockCode(String stockCode);
 	
-	
-	//根据股票代码删除股票信息
+	/*
+	 * 根据股票代码删除股票信息
+	 */
 	int deleteByStockCode(String stockCodeDel);
 	
 
