@@ -28,7 +28,7 @@ function check_admin() {
 				$('#adminTip').text("账号或密码错误!")
 			} else {
 				// 登录成功跳转到后台页面
-				location.href = 'main.jsp';
+				location.href = 'index.jsp';
 			}
 		}
 	});
