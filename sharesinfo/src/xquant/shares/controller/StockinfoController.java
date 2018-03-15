@@ -65,10 +65,11 @@ public class StockinfoController {
 	
 	//异步检查股票代码是否重复
 	@RequestMapping("checkstockcode")
+	@ResponseBody
 	public String checkstockcode(String stockcode,HttpServletRequest request){
 		String s = stockinfoService.getSharesInfo(stockcode);
 		if(s.length() > 0){
-			return "failure";
+			return null;
 		}
 		return "success";
 	}

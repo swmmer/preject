@@ -100,8 +100,8 @@ function check_stockcode() {
 				dataType : 'JSON',
 				success : function(data) {
 					// 回调函数
-					if(date == "failure")
-					alert("该股票代码已经存在");
+					if(date == null)
+					$("#stock_code").html("该股票代码已经存在");
 				}
 			})
 		}
