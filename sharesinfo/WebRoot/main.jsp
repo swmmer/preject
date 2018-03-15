@@ -12,6 +12,13 @@
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/search.js"></script>
 	<script type="text/javascript" src="js/delete.js"></script>
+	<script type="text/javascript" src="js/output.js"></script>
+	<script type="text/javascript">
+	function toModify(obj){
+		//修改记录的参数传递
+		location.href="add.jsp?"+$(obj).parent().siblings().eq(0).html();
+	}
+	</script>
 </head>
 <body style="margin: 10px;">
 	<div class="container-fluid" style="margin-top: 20px;">
@@ -33,7 +40,7 @@
 					</div>
 					<div id="collapseTwo" class="accordion-body collapse">
 						<div class="accordion-inner">
-							<a href="toMain.do">股票查询</a>
+							<a href="main.jsp">股票查询</a>
 						</div>
 					</div>
 				</div>
@@ -47,9 +54,9 @@
 
 					<button class="btn btn-primary" type="button"
 						style="float: right; margin-left: 10px;"
-						onclick="location.href='toAdd.do'">录入</button>
+						onclick="location.href='add.jsp'">录入</button>
 					<button class="btn btn-primary" id="output" type="button"
-						style="float: right;">导出</button>
+						style="float: right;" onclick="output();">导出</button>
 
 					<table class="table table-bordered table-striped table-hover"
 						style="margin-top: 20px;">
@@ -71,7 +78,15 @@
 					</table>
 					
 					<!-- 分页 -->
-					<div class="pagination pagination-centered" id="paging"></div>
+					<div class="pagination pagination-right" id="paging">
+					<a href="#" id="showPageCounts"></a>
+					<ul>
+					<li><a href="#" class="beforepage">上一页</a></li>
+					<li><input type="text" id="currPageNum" class="input-mini" onkeyup="checkSearchNum();" value=1></li>
+					<li><a href="#" class="afterpage">下一页</a></li>
+					<li><a href="#" class="goto" style="float:right">转到</a></li>
+					</ul>
+					</div>
 				</div>
 			</div>
 

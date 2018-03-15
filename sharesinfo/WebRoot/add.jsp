@@ -13,6 +13,32 @@
 <script src="jqueryui/jquery-ui.min.js"></script>
 
 <script src="js/add.js"></script>
+<script type="text/javascript">
+//获取修改记录的内容
+$(function(){
+	var stockcodeTemp = location.search;
+	$.ajax({
+		url : 'getSharesInfo.do',
+		type : 'post',
+		data : {
+			stockCode : stockcodeTemp.substr(1)
+		},
+		dataType : 'JSON',
+		success : function(data) {
+			console.log(data);
+			//将该条记录的字段写入到每个输入框
+			$("#stock_code").val(data[0].stockCode);
+			$("#stock_name").val(data[0].stockName);
+			$("#trading_market").val(data[0].tradingMarket);
+			$("#offering_price").val(data[0].offeringPrice);
+			$("#pe_ratio").val(data[0].peRatio);
+			$("#launch_date").val(data[0].launchDate);
+			$("#maturity_date").val(data[0].maturityDate);
+		}
+	});
+	
+});
+</script>
 
 <title>衡泰股票系统-股票信息录入</title>
 </head>
@@ -37,7 +63,7 @@
 					</div>
 					<div id="collapseTwo" class="accordion-body collapse">
 						<div class="accordion-inner">
-							<a href="stock.html">股票查询</a>
+							<a href="main.jsp">股票查询</a>
 						</div>
 					</div>
 				</div>
@@ -63,12 +89,11 @@
 								<td><span>发行市盈率：</span> <input type="text" id="pe_ratio"
 									name=peRatio required /></td>
 							</tr>
-
 							<tr>
-								<td><span>上市日期：</span> <input type="text" id="launch_date"
-									placeholder="请选择日期" name="launchDate" required /></td>
-								<td><span>到期日：</span> <input type="text" id="maturity_date"
-									placeholder="请选择日期" name="maturityDate" required /></td>
+								<td><span>上市日期：</span> <input id="date1" type="text" name="launchDate"
+									placeholder="请选择日期" /></td>
+								<td><span>到期日：</span> <input id="date2" type="text" name="maturityDate"
+									placeholder="请选择日期" /></td>
 							</tr>
 
 							<tr>
