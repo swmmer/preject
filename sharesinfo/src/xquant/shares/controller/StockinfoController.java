@@ -43,7 +43,7 @@ public class StockinfoController {
 	@RequestMapping(value = "getSharesInfo",produces = "application/json;charset=utf-8") 
 	@ResponseBody
     public String getInfobystockCode(String stockCode ,HttpServletRequest request){  
-            return stockinfoService.getSharesInfo(stockCode);  
+		return stockinfoService.getSharesInfo(stockCode);  
             
 	}
 	

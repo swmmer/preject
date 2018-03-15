@@ -31,7 +31,7 @@ function check_stockcode() {
 			url : 'getSharesInfo.do',
 			type : 'post',
 			data : {
-				stockcode : $("#stock_code").val()
+				stockCode : $("#stock_code").val()
 			},
 			dataType : 'JSON',
 			success : function(data) {

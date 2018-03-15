@@ -14,7 +14,7 @@
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <script src="jqueryui/jquery-ui.min.js"></script>
-
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script src="js/add.js"></script>
 <script type="text/javascript">
 </script>
