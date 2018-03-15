@@ -102,6 +102,7 @@ function check_stockcode() {
 			success : function(data) {
 				if(data.length == 1){
 					$("#errorTip").html("股票代码已存在！");
+					$("#stock_code").val("");
 				}else{
 					$("#errorTip").html("");	
 				}
