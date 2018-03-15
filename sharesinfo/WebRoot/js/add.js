@@ -9,10 +9,11 @@ $(function() {
 		changeMonth : true,
 		changeYear : true
 	});
+	
 	$("#maturity_date").datepicker({
 		dateFormat : "yy-mm-dd",
 		changeMonth : true,
-		changeyear : true
+		changeYear : true
 	})
 });
 
