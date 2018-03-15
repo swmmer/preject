@@ -28,7 +28,7 @@ function check_stockcode() {
 		$("#stock_code").val("");
 	} else {
 		$.ajax({
-			url : 'checkstockcode.do',
+			url : 'getSharesInfo.do',
 			type : 'post',
 			data : {
 				stockcode : $("#stock_code").val()
