@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/search.js"></script>
-	<script type="text/javascript" src="js/delete.js"></script>
+	<script type="text/javascript" src="js/del.js"></script>
 	<script type="text/javascript" src="js/output.js"></script>
 	<script type="text/javascript">
 	function toModify(obj){
@@ -19,6 +19,7 @@
 			location.href="update.jsp?"+$(obj).parent().siblings().eq(0).html();
 		
 	}
+		
 	</script>
 </head>
 <body style="margin: 10px;">
