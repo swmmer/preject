@@ -16,7 +16,8 @@
 	<script type="text/javascript">
 	function toModify(obj){
 		//修改记录的参数传递
-		location.href="add.jsp?"+$(obj).parent().siblings().eq(0).html();
+			location.href="update.jsp?"+$(obj).parent().siblings().eq(0).html();
+		
 	}
 	</script>
 </head>

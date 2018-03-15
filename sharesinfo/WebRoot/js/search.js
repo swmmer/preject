@@ -125,7 +125,7 @@ function showData(data, pageNum) {
 									+ '<td>'
 									+ obj.maturityDate
 									+ '</td>'
-									+ '<td><a id="btndelete" onclick="toModify(this);" role="button" class="btn btn-link">修改</a>'
+									+ '<td><a id="btnmodify" onclick="toModify(this);" role="button" class="btn btn-link">修改</a>'
 									+ ' <a id="btndelete" onclick="delRow(this);" href="#deletetip" role="button" class="btn btn-link" data-toggle="modal">删除</a></td>'
 									+ '</tr>');
 							$("#tbody_data").append($newTr);

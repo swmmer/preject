@@ -71,11 +71,9 @@ public class StockinfoServiceImpl implements StockinfoService{
 		      try {
 				out.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	      
