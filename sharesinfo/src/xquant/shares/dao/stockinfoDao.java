@@ -14,7 +14,8 @@ public interface stockinfoDao {
     stockinfo selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(stockinfo record);
-
+    
+    //根据id修改信息
     void updateByPrimaryKey(stockinfo record);
     
     //查询股票信息

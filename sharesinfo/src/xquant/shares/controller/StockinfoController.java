@@ -30,9 +30,9 @@ public class StockinfoController {
 	
 	//修改
 	@RequestMapping("updatesharesinfo")
-	@ResponseBody
-	public void updatesharesinfo(stockinfo record,HttpServletRequest request) {
+	public String updatesharesinfo(stockinfo record,HttpServletRequest request) {
 		stockinfoService.updateByid(record);
+		return "main";
 	}
 	
 	
