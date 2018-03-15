@@ -22,10 +22,11 @@ function check_admin() {
 		},
 		dataType : 'JSON',
 		success : function(data) {
-			console.log(data);
 			// data 是服务器返回的数据,如果返回的是 json 字符串,会自动转换成相应的 js 对象
 			if (data == null) {
-				$('#adminTip').text("账号或密码错误!")
+				$('#adminTip').text("账号或密码错误!");
+				$('#adminCode').val("");
+				$('#adminPwd').val("");
 			} else {
 				// 登录成功跳转到后台页面
 				location.href = 'index.jsp';

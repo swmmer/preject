@@ -63,6 +63,9 @@ function search(obj) {
 			dataType : 'JSON',
 			success : function(data) {
 				// 调用展示函数，当前页码指定为1
+				if(data.length < 1){
+					alert("没有查询到该股票记录！");
+				}
 				showData(data, 1);
 			}
 		});
