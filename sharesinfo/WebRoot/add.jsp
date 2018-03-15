@@ -30,7 +30,7 @@
 			<div class="span8">
 				<div class="navbar-inner" style="margin: 10px auto;">
 					<p class="text-center text-info"
-						style="margin: 10px; font-size: 20px;">股神巴菲特第四研究组</p>
+						style="margin: 10px; font-size: 20px;">衡泰股票系统</p>
 				</div>
 				<div class="span2"
 					style="height: 800px; border: 1px, solid, #ccc; background-color: #fafafa">

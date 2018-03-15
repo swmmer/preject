@@ -20,6 +20,9 @@ $(function() {
 // 检查股票代码是否正常
 function check_stockcode() {
 	var stock_code = $("#stock_code").val();
+	if(stock_code == $.cookie('tempCode_cookie')){
+		return;
+	}
 	//alert("stock_code:" + stock_code)
 	if (stock_code.toString().length < 6) {
 		$("#stock_code").val("");
@@ -55,6 +58,8 @@ function compare_date() {
 	if (time2 < time1 || time2 == time1 ) {
 	    alert("到期日必须大于上市日期");
 		return false;
+	}else{
+		alert("提交成功！");
 	}
 }
 

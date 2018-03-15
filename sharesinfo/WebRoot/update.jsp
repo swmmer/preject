@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="jqueryui/jquery-ui.min.css">
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script src="jqueryui/jquery-ui.min.js"></script>
 
 <script src="js/add.js"></script>
@@ -31,6 +32,7 @@ $(function(){
 		dataType : 'JSON',
 		success : function(data) {
 			console.log(data);
+			$.cookie('tempCode_cookie', data[0].stockCode);
 			//将该条记录的字段写入到每个输入框
 			$("#stock_id").val(data[0].id);
 			$("#stock_code").val(data[0].stockCode);
@@ -46,7 +48,7 @@ $(function(){
 });
 </script>
 
-<title>衡泰股票系统-股票信息录入</title>
+<title>衡泰股票系统-股票信息修改</title>
 </head>
 <body style="margin: 10px;">
 
@@ -57,7 +59,7 @@ $(function(){
 			<div class="span8">
 				<div class="navbar-inner" style="margin: 10px auto;">
 					<p class="text-center text-info"
-						style="margin: 10px; font-size: 20px;">股神巴菲特第四研究组</p>
+						style="margin: 10px; font-size: 20px;">衡泰股票系统</p>
 				</div>
 				<div class="span2"
 					style="height: 800px; border: 1px, solid, #ccc; background-color: #fafafa">
@@ -75,7 +77,7 @@ $(function(){
 				</div>
 				<div class="span8">
 					<form class="form-inline"
-						action="<%=request.getContextPath() %>/updatesharesinfo.do" method="post">
+						action="<%=request.getContextPath() %>/updatesharesinfo.do" method="post" onsubmit="return compare_date();">
 						<input type="hidden" id="stock_id" name="id"/>
 						<table class="table">
 							<tr>
@@ -85,16 +87,16 @@ $(function(){
 							</tr>
 							<tr>
 								<td><span>股票名称：</span> <input type="text" id="stock_name"
-									name="stockName" required /></td>
+									name="stockName" onblur = "checkstock_name();"  placeholder="请输入中文股票名称" required /></td>
 								<td><span>交易市场：</span> <input type="text"
 									id="trading_market" name="tradingMarket" required /></td>
 							</tr>
 
 							<tr>
 								<td><span>发行价格：</span> <input type="text"
-									id="offering_price" name="offeringPrice" required /></td>
+									id="offering_price" name="offeringPrice" onblur = "checkoffering_price();" required /></td>
 								<td><span>发行市盈率：</span> <input type="text" id="pe_ratio"
-									name=peRatio required /></td>
+									name=peRatio onblur = "checkpe_ratio();" required /></td>
 							</tr>
 							<tr>
 								<td><span>上市日期：</span> <input id="launch_date" type="text" name="launchDate"
@@ -106,7 +108,7 @@ $(function(){
 							<tr>
 								<td><input class="btn btn-primary" type="submit"
 										style="float: right; margin-right: 58px; margin-top: 25px;"
-										onclick="compare_date();" value = "提交"></td>
+										 value = "提交"></td>
 								<td><button class="btn btn-primary" type="button"
 										style="float: left; margin-right: 58px; margin-top: 25px;"
 										onclick="window.location.href='main.jsp'">取消</button></td>
