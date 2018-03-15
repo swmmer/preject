@@ -26,6 +26,25 @@ public class UserController {
 		this.userService = userService;
 	}
 
+	/**
+	 * <p>接口名称: 登陆
+	 * <p>主要描述：
+	 * <p>访问方式(建议)：post
+	 * <p>URL: login.do
+	 * <p>使用对象: web
+	 * <p>参数说明:
+	 * <pre>
+	 * |名称                                    |类型               |是否必须                     |默认值	       |说明
+	 * username         string        Y             NULL           用户名
+	 * password         String        Y             null           密码
+	 * </pre>
+	 * <p>返回数据:
+	 * <pre>
+		{
+			  jsonObject,  用户信息
+		}
+	  * </pre>
+	  */
 	@RequestMapping("login")
 	@ResponseBody
 	public String login(String username,String password, HttpServletRequest request) {
@@ -36,7 +55,7 @@ public class UserController {
 		user = userService.login(loginUser);
 		if (user != null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("username", user);
+			session.setAttribute("username",loginUser.getUsername());
 		}
 		Gson gson = new Gson();
 		String json = gson.toJson(user);
