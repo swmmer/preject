@@ -73,7 +73,7 @@ $(function(){
 				</div>
 				<div class="span8">
 					<form class="form-inline"
-						action="<%=request.getContextPath() %>/insertsharesinfo.do" method="post">
+						action="<%=request.getContextPath() %>/updatesharesinfo.do" method="post">
 						<input type="hidden" id="stock_id" name="id"/>
 						<table class="table">
 							<tr>
