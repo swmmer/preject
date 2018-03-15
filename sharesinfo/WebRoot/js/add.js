@@ -35,7 +35,7 @@ function check_stockcode() {
 			},
 			dataType : 'JSON',
 			success : function(data) {
-				if(data.length == 1){
+				if(data.length >= 1){
 					$("#errorTip").html("股票代码已存在！");
 					$("#stock_code").val("");
 				}else{
