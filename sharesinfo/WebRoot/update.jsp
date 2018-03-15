@@ -14,7 +14,6 @@
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script src="jqueryui/jquery-ui.min.js"></script>
-
 <script src="js/add.js"></script>
 <script type="text/javascript">
 //获取修改记录的内容
@@ -46,6 +45,7 @@ $(function(){
 	});
 	
 });
+
 </script>
 
 <title>衡泰股票系统-股票信息修改</title>
