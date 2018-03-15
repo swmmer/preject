@@ -72,7 +72,15 @@
 					</table>
 					
 					<!-- 分页 -->
-					<div class="pagination pagination-centered" id="paging"></div>
+					<div class="pagination pagination-right" id="paging">
+					<a href="#" id="showPageCounts"></a>
+					<ul>
+					<li><a href="#" class="beforepage">上一页</a></li>
+					<li><input type="text" id="currPageNum" class="input-mini" onkeyup="checkSearchNum();" value=1></li>
+					<li><a href="#" class="afterpage">下一页</a></li>
+					<li><a href="#" class="goto" style="float:right">转到</a></li>
+					</ul>
+					</div>
 				</div>
 			</div>
 
