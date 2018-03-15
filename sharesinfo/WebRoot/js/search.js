@@ -100,7 +100,10 @@ function showData(data, pageNum) {
 	$.cookie('pageCount_cookie', pages);
 	// 显示当前页码
 	$("#currPageNum").val(pageNum);
-	
+	if($("#currPageNum").val() > pages){
+		$("#currPageNum").val(pages);
+		pageNum = pages;
+	}
 	// 遍历数据并展示当前页
 	$.each(data,function(idx, obj) {
 						if (idx >= ((pageNum - 1) * pageItems)) {
