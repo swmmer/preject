@@ -12,13 +12,9 @@
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <script src="jqueryui/jquery-ui.min.js"></script>
 
-
 <script src="js/add.js"></script>
-<!--
-onblur="check_stockcode();"
--->
 
-<title>录入信息</title>
+<title>衡泰股票系统-股票信息录入</title>
 </head>
 <body style="margin: 10px;">
 
@@ -46,40 +42,42 @@ onblur="check_stockcode();"
 					</div>
 				</div>
 				<div class="span8">
-					<form class="form-inline">
+					<form class="form-inline"
+						action="<%=request.getContextPath() %>/insertsharesinfo.do" method="post">
 						<table class="table">
 							<tr>
 								<td><span>股票代码：</span> <input type="text"
-									placeholder="请输入6位股票代码" id="stock_code" MaxLength=6 required /></td>
+									placeholder="请输入6位股票代码" id="stock_code" MaxLength=6
+									onblur="check_stockcode();" name="stockCode" required /></td>
 							</tr>
 							<tr>
 								<td><span>股票名称：</span> <input type="text" id="stock_name"
-									required /></td>
+									name="stockName" required /></td>
 								<td><span>交易市场：</span> <input type="text"
-									id="trading_market" required /></td>
+									id="trading_market" name="tradingMarket" required /></td>
 							</tr>
 
 							<tr>
 								<td><span>发行价格：</span> <input type="text"
-									id="offering_price" required /></td>
+									id="offering_price" name="offeringPrice" required /></td>
 								<td><span>发行市盈率：</span> <input type="text" id="pe_ratio"
-									required /></td>
+									name=peRatio required /></td>
 							</tr>
 
 							<tr>
 								<td><span>上市日期：</span> <input type="text" id="launch_date"
-									placeholder="请选择日期" /></td>
+									placeholder="请选择日期" name="launchDate" required /></td>
 								<td><span>到期日：</span> <input type="text" id="maturity_date"
-									placeholder="请选择日期" /></td>
+									placeholder="请选择日期" name="maturityDate" required /></td>
 							</tr>
 
 							<tr>
-								<td><button class="btn btn-primary" type="button"
+								<td><input class="btn btn-primary" type="submit"
 										style="float: right; margin-right: 58px; margin-top: 25px;"
-										onclick="validate_add();">录入</button></td>
+										onclick="compare_date();" value = "录入"></td>
 								<td><button class="btn btn-primary" type="button"
 										style="float: left; margin-right: 58px; margin-top: 25px;"
-										onclick=";">取消</button></td>
+										onclick="window.location.href='main.jsp'">取消</button></td>
 							</tr>
 						</table>
 					</form>

@@ -39,9 +39,9 @@ public class StockinfoController {
 
 	//插入
 	@RequestMapping("insertsharesinfo")
-	@ResponseBody
-	public void insertsharesinfo(stockinfo StockInfo,HttpServletRequest request){
+	public String insertsharesinfo(stockinfo StockInfo,HttpServletRequest request){
 		stockinfoService.insert(StockInfo);
+		return "add";
 	}
 	
 	
@@ -54,12 +54,23 @@ public class StockinfoController {
 		return stockOfJson;
 	}
     
+	//导出
 	@RequestMapping("exportExcelByStockCodeSearch")
 	public void exportExcelByStockCodeSearch(String stockCodeSearch,HttpServletResponse response){
 		
 		stockinfoService.exportExcel(stockCodeSearch);
 		String path = "E://NewFileName.xls";
 		Result.download(path,response);
+	}
+	
+	//异步检查股票代码是否重复
+	@RequestMapping("checkstockcode")
+	public String checkstockcode(String stockcode,HttpServletRequest request){
+		String s = stockinfoService.getSharesInfo(stockcode);
+		if(s.length() > 0){
+			return "failure";
+		}
+		return "success";
 	}
 	
 	
