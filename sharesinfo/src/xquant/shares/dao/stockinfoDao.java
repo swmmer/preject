@@ -28,8 +28,5 @@ public interface stockinfoDao {
 	/*
 	 * 根据股票代码删除股票信息
 	 */
-	int deleteByStockCode(String stockCodeDel);
-	
-
-    
+	int deleteByStockCode(String stockCodeDel);   
 }

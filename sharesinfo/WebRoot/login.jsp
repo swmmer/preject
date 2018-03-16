@@ -51,7 +51,7 @@ function check_admin() {
 			 用户名:<input id="adminCode" type="text" class="input-small" placeholder="User">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			 密码: <input id="adminPwd" type="password" class="input-small" placeholder="Password">&nbsp;&nbsp;
 			<button class="btn btn-primary" onclick="check_admin();">登陆</button>
-			<span id="adminTip"></span>
+			<span id="adminTip" style="color: red;"></span>
 			
 		
 		</div>
